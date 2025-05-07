@@ -1,0 +1,24 @@
+# 常用的JVM启动参数有哪些
+
+<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">JVM（Java虚拟机）的启动参数用于配置和调整Java应用程序的运行时行为。以下是一些常用的JVM启动参数：</font>
+
+1. **<font style="background-color:rgb(247, 247, 248);">-Xmx</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：指定Java堆内存的最大限制。例如，</font>**<font style="background-color:rgb(247, 247, 248);">-Xmx512m</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);"> 表示最大堆内存为512兆字节。</font>
+2. **<font style="background-color:rgb(247, 247, 248);">-Xms</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：指定Java堆内存的初始大小。例如，</font>**<font style="background-color:rgb(247, 247, 248);">-Xms256m</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);"> 表示初始堆内存为256兆字节。</font>
+3. **<font style="background-color:rgb(247, 247, 248);">-Xss</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：指定每个线程的堆栈大小。例如，</font>**<font style="background-color:rgb(247, 247, 248);">-Xss256k</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);"> 表示每个线程的堆栈大小为256千字节。</font>
+4. **<font style="background-color:rgb(247, 247, 248);">-XX:MaxPermSize</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">（对于Java 7及之前的版本）或 </font>**<font style="background-color:rgb(247, 247, 248);">-XX:MaxMetaspaceSize</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">（对于Java 8及以后的版本）：指定永久代（Java 7及之前）或元空间（Java 8及以后）的最大大小。</font>
+5. **<font style="background-color:rgb(247, 247, 248);">-XX:PermSize</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">（对于Java 7及之前的版本）或 </font>**<font style="background-color:rgb(247, 247, 248);">-XX:MetaspaceSize</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">（对于Java 8及以后的版本）：指定永久代（Java 7及之前）或元空间（Java 8及以后）的初始大小。</font>
+6. **<font style="background-color:rgb(247, 247, 248);">-Xmn</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：指定年轻代的大小。例如，</font>**<font style="background-color:rgb(247, 247, 248);">-Xmn256m</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);"> 表示年轻代大小为256兆字节。</font>
+7. **<font style="background-color:rgb(247, 247, 248);">-XX:SurvivorRatio</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：指定年轻代中Eden区与Survivor区的大小比例。例如，</font>**<font style="background-color:rgb(247, 247, 248);">-XX:SurvivorRatio=8</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);"> 表示Eden区与每个Survivor区的大小比例为8:1。</font>
+8. **<font style="background-color:rgb(247, 247, 248);">-XX:NewRatio</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：指定年轻代与老年代的大小比例。例如，</font>**<font style="background-color:rgb(247, 247, 248);">-XX:NewRatio=2</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);"> 表示年轻代和老年代的比例为1:2。</font>
+9. **<font style="background-color:rgb(247, 247, 248);">-XX:MaxGCPauseMillis</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：设置垃圾回收的最大暂停时间目标。例如，</font>**<font style="background-color:rgb(247, 247, 248);">-XX:MaxGCPauseMillis=100</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);"> 表示垃圾回收的最大暂停时间目标为100毫秒。</font>
+10. **<font style="background-color:rgb(247, 247, 248);">-XX:ParallelGCThreads</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：指定并行垃圾回收线程的数量。例如，</font>**<font style="background-color:rgb(247, 247, 248);">-XX:ParallelGCThreads=4</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);"> 表示使用4个线程进行并行垃圾回收。</font>
+11. **<font style="background-color:rgb(247, 247, 248);">-XX:+UseConcMarkSweepGC</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：启用并发标记清除垃圾回收器。</font>
+12. **<font style="background-color:rgb(247, 247, 248);">-XX:+UseG1GC</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：启用G1（Garbage First）垃圾回收器。</font>
+13. **<font style="background-color:rgb(247, 247, 248);">-Dproperty=value</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">：设置Java系统属性，可以在应用程序中使用 </font>**<font style="background-color:rgb(247, 247, 248);">System.getProperty("property")</font>**<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);"> 来获取这些属性的值。</font>
+
+<font style="color:rgb(55, 65, 81);background-color:rgb(247, 247, 248);">这些是一些常见的JVM启动参数，可以根据应用程序的需求和性能调优的目标进行调整。JVM启动参数的使用可以显著影响应用程序的性能和行为，因此在设置这些参数时需要谨慎。同时，JVM支持的启动参数因不同的JVM版本和供应商而有所不同，建议查阅相关文档以获取更详细的信息。</font>
+
+
+
+> 更新: 2023-09-04 11:18:23  
+> 原文: <https://www.yuque.com/tulingzhouyu/db22bv/rwvqepaazk74extg>

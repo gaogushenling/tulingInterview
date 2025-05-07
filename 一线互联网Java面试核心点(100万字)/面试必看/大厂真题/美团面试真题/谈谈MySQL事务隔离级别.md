@@ -1,0 +1,18 @@
+# 谈谈MySQL事务隔离级别
+
+<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">MySQL事务隔离级别是指在并发环境下，事务之间</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">相互隔离</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">的程度。MySQL提供了四个事务隔离级别，分别是</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">读未提交、读已提交、可重复读</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">和</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">串行化</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">。</font>
+
+<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">读未提交是</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">最低的隔离级别</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">，事务之间相互影响最大。一个事务可以读取到另一个事务</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">尚未提交</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">的数据，可能会出现</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">脏读</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">问题。</font>
+
+<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">读已提交是一个事务只能读取到另一个事务</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">已经提交</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">的数据，避免了脏读问题。但是可能会出现</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">不可重复读</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">问题，即一个事务内多次读取同一数据，得到的结果可能不一致。</font>
+
+<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">可重复读是MySQL</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">默认使用的隔离级别</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">，它是在一个事务中，多次读取同一数据得到的结果是</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">一致</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">的。但是可能会出现幻读问题，即一个事务内多次查询</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">同一范围</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">的数据，得到的结果集可能</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">不一致</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">。</font>
+
+<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">串行化是</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">最高的隔离级别</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">，强制</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">事务串行执行</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">，避免了脏读、不可重复读和幻读等问题。但是会导致</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">并发性能下降</font>**<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">，一般情况下不建议使用。</font>
+
+<font style="color:rgb(0, 0, 0);background-color:rgb(248, 248, 248);">在选择事务隔离级别时，需要根据具体的业务需求和并发情况进行权衡。较低的隔离级别可以提高并发性能，但可能会出现数据不一致的问题；而较高的隔离级别可以保证数据的一致性，但会降低并发性能。大家公司里选择的是哪种隔离级别？</font>
+
+
+
+> 更新: 2023-08-28 22:54:29  
+> 原文: <https://www.yuque.com/tulingzhouyu/db22bv/czr6nlmzzwy3ko1z>
